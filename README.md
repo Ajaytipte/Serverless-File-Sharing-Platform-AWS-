@@ -1,4 +1,4 @@
-# Serverless File Sharing Platform
+<img width="1903" height="834" alt="image" src="https://github.com/user-attachments/assets/4aab5e3a-3ebd-4d35-ae2d-c48168ef65db" /># Serverless File Sharing Platform
 
 ### Project Description:
 
@@ -26,38 +26,51 @@ Use Cases:
 ## Steps to Deploy
 
 * Step 1: Create an S3 bucket to store uploaded files:
-* ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Architecture.png?raw=true)
+* ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20121140.png?raw=true)
 
   ```bash
   my-file-sharing-bucket-aj
   ```
 
 * Step 2: Create the Lambda function to handle file uploads (UploadFunction): \
-  Name: UploadFunction \
-  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20121140.png?raw=true)
-
+  Name: MyUploadFunction \
   Runtime: Python 3.x \
-  Execution role: IAM role with S3 write permissions \
-  Code: Use the UploadFunction Python code.
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20122343.png?raw=true)
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123008.png?raw=true)
   
+  Execution role: IAM role with S3 write permissions \
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20122828.png?raw=true)
+  Code: Use the UploadFunction Python code.
   
 
 * Step 3: Create the Lambda function to handle file downloads (DownloadFunction): \
-  Name: DownloadFunction \
+  Name: MyDownloadFunction \
   Runtime: Python 3.x \
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123209.png?raw=true)
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123225.png?raw=true)
+  
   Execution role: IAM role with S3 write permissions \
   Code: Use the DownloadFunction Python code.
 
 * Step 4: Create an API Gateway \
-  Name: my-file-sharing-api-amc \
+* ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123404.png?raw=true)
+  Name: my-file-sharing-api-1 \
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123452.png?raw=true)
+  
   Create two resources: /files with POST and GET methods. \
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123613.png?raw=true)
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123744.png?raw=true)
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20123856.png?raw=true)
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20124619.png?raw=true)
   For each method, configure Lambda integration with UploadFunction and DownloadFunction respectively. 
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20124820.png?raw=true)
+  
 
 * Step 5: Configure GET Method: \
   Method Request --> Edit --> Request validator --> Validate Query String Parameters and Headers \
   Method Request --> Edit --> Request Body --> text/plain \
   Integration Request --> Edit --> Mapping Templates --> Content Type: application/json --> Content Body: 
-
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20125023.png?raw=true)
   ```bash
   {
     "queryStringParameters": {
@@ -67,7 +80,7 @@ Use Cases:
   ```
 * Step 6: Configure POST Method: \
   Integration Request --> Edit --> Mapping Templates --> Content Type: text/plain --> Content Body: \
-
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20125210.png?raw=true)
   ```bash
   {
     "body" : "$input.body",
@@ -78,6 +91,8 @@ Use Cases:
   ```
 * Step 7: Deploy API Gateway: \
   Deploy the API to a stage (e.g., dev): \
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20125230.png?raw=true)
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20125436.png?raw=true)
   Click on "Actions" > "Deploy API". \
   Choose your stage (e.g., dev) and deploy. 
 
@@ -108,5 +123,6 @@ Use Cases:
        ```bash
        curl --location 'https://<api-id>.execute-api.<region>.amazonaws.com/dev/files?fileName=test.txt'
        ```
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20131342.png?raw=true)
   
 
