@@ -26,15 +26,21 @@ Use Cases:
 ## Steps to Deploy
 
 * Step 1: Create an S3 bucket to store uploaded files:
+* ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Architecture.png?raw=true)
+
   ```bash
   my-file-sharing-bucket-aj
   ```
 
 * Step 2: Create the Lambda function to handle file uploads (UploadFunction): \
   Name: UploadFunction \
+  ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20121140.png?raw=true)
+
   Runtime: Python 3.x \
   Execution role: IAM role with S3 write permissions \
   Code: Use the UploadFunction Python code.
+  
+  
 
 * Step 3: Create the Lambda function to handle file downloads (DownloadFunction): \
   Name: DownloadFunction \
