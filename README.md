@@ -1,4 +1,4 @@
-<img width="1903" height="834" alt="image" src="https://github.com/user-attachments/assets/4aab5e3a-3ebd-4d35-ae2d-c48168ef65db" /># Serverless File Sharing Platform
+# Serverless File Sharing Platform
 
 ### Project Description:
 
@@ -123,6 +123,7 @@ Use Cases:
        ```bash
        curl --location 'https://<api-id>.execute-api.<region>.amazonaws.com/dev/files?fileName=test.txt'
        ```
+    4. Result \
   ![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Screenshot%202025-07-17%20131342.png?raw=true)
   
 
