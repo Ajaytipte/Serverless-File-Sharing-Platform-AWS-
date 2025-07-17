@@ -13,7 +13,7 @@ Use Cases:
 
 ### Project Architecture:
 
-<img width="1132" alt="Screenshot 2024-07-09 at 10 38 15 PM" src="[assets/Architecture.png](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Architecture.png?raw=true)">
+![Image](https://github.com/Ajaytipte/Serverless-File-Sharing-Platform-AWS-/blob/main/assests/Architecture.png?raw=true)
 
 
 ### Steps to Build the Project:
